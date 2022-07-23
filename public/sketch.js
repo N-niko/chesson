@@ -3,6 +3,7 @@ var l = 60;
 let b;
 let gameO = false;  
 let mp = false
+let drm = []
 
 function preload () {
   
@@ -43,6 +44,7 @@ function setup () {
 
 function draw () {
   background(255);
+
   
   b.showb (); // show chess board
   
@@ -56,8 +58,27 @@ function draw () {
   
   points (b.b, true);
   
+  for (dr of drm) {
+    push ();
+    //console.log (dr[4])
+    if (dr[4] < 0) 
+        stroke ('red')
+    else
+        stroke ('green')
+    
+    if (dr[4] == -10000) {
+        pop ();
+        continue
+    }
+    strokeWeight (min (abs (dr[4]), 4) * 5)
+    line (dr[0], dr[1], dr[2], dr[3]);
+
+    pop ();
+  }
+
   if (gameO && !Manim)
     noLoop ();
+    
   
   fill ('red');
   textSize (35);

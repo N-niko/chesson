@@ -2,7 +2,8 @@
 let mmdepth = 3;
 
 function emove () {
-
+  drm = []
+  
   if (gameO || Cpawnw) return;
   
   let sc, msc = -5000;
@@ -21,8 +22,8 @@ function emove () {
       }
     }
   }
-  
-  for (let cdt = 1; cdt <= mmdepth; cdt++) {
+
+  for (let cdt = mmdepth; cdt <= mmdepth; cdt++) {
     
     for (let j = 0; j < apm.length; j++) {
       
@@ -31,17 +32,22 @@ function emove () {
       sc = score (b.b, 0, 0, msc, cdt);
       b.b = moveP (apm[j].mx, apm[j].my, apm[j].x, apm[j].y, b.b);
       b.b[apm[j].mx][apm[j].my] = sp;
-      if (cdt != mmdepth - 1)
+      
+      if (cdt == mmdepth) {
+
+        //console.log ((apm[j].x ) * 1, (apm[j].y + 0) *1, (apm[j].mx ) * 1, (apm[j].my  ) * 1, sc)
+        drm.push ([(apm[j].x + 0.5) * l, (apm[j].y + 0.5) * l, (apm[j].mx + 0.5) * l, (apm[j].my + 0.5) * l, sc]);
+
         if (sc > msc) {
           msc = sc;
           pl = { x: apm[j].x, y: apm[j].y, tx: apm[j].mx, ty: apm[j].my, k: apm[j].k, r: apm[j].r, u: apm[j].u };
         }
-      else {
-        apm[j].p = sc;
+        else {
+          apm[j].p = sc;
+        }
       }
       
     }
-    
     // SORT
     let napm = [];
     for (let i = 0; i < apm.length; i++) {
@@ -98,7 +104,6 @@ function emove () {
     }
   }
   */
-  
   
   if (pl.ty == 7 && b.b[pl.x][pl.y].P == 1) {
     Cpawnb = true;
