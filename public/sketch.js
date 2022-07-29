@@ -62,15 +62,15 @@ function draw () {
     push ();
     //console.log (dr[4])
     if (dr[4] < 0) 
-        stroke ('red')
+        stroke ('red', 100)
     else
-        stroke ('green')
+        stroke ('green', 100)
     
     if (dr[4] == -10000) {
         pop ();
         continue
     }
-    strokeWeight (min (abs (dr[4]), 4) * 5)
+    strokeWeight (min (abs (dr[4]), 4) * 2)
     line (dr[0], dr[1], dr[2], dr[3]);
 
     pop ();
