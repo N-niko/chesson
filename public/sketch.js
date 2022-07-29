@@ -62,9 +62,9 @@ function draw () {
     push ();
     //console.log (dr[4])
     if (dr[4] < 0) 
-        stroke ('red', 100)
+        stroke ('red')
     else
-        stroke ('green', 100)
+        stroke ('green')
     
     if (dr[4] == -10000) {
         pop ();
