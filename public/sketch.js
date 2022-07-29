@@ -24,14 +24,16 @@ function preload () {
 }
 
 function setup () {
-  createCanvas(600, 600);
+  size = min (window.innerWidth, window.innerHeight) * 0.9;
+  size = floor (size / 8) * 8;
+  createCanvas (size, size);
+  l = size / 8;
 
   for (let im of img) {
-    im.resize(width / 10, height / 10);
+    im.resize(width / 8, height / 8);
   }
   
   b = new Board (); 
-  b = new Board ();
   
   fillBoard ();
   
@@ -71,7 +73,7 @@ function draw () {
         continue
     }
     strokeWeight (min (abs (dr[4]), 4) * 2)
-    line (dr[0], dr[1], dr[2], dr[3]);
+    //line (dr[0], dr[1], dr[2], dr[3]);
 
     pop ();
   }

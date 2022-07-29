@@ -5,6 +5,10 @@ let imgi = [0, 4, 10, 8];
 let rH = 130, rW = 340;
 
 function changeP () {
+
+  rW = width * 0.5;
+  rH = height * 0.25;
+
   if (!Cpawnw && !Cpawnb || Manim) return;
   
   
@@ -27,8 +31,8 @@ function changeP () {
   for (let i = 0; i < 4; i++) {
 
     strokeWeight (4);
-    rect (-120 + i * 80, 0, 70, 70);
-    image (img[imgi[i] + Cpawnw], -150 + i * 80, -rH / 4);
+    rect (-rW / 2 + (i + 0.5) * l, 0, l * 0.9, l * 0.9);
+    image (img[imgi[i] + Cpawnw], -rW / 2 + (i) * l, -l / 2);
 
   }
   
@@ -41,14 +45,15 @@ function chooseP() {
   
   if (!Cpawnw && !Cpawnb) return;
   
-  if (mouseY < (height - 60) / 2 || mouseY > (height + 60) / 2) return;
+  if (mouseY < height / 2 - l / 2 || mouseY > height / 2 + l / 2) return;
   
   let wo;
   
   for (let i = 0; i < 4; i++) {
     
-    if (mouseX > 90 + i * 80 && mouseX < 150 + i * 80) {
+    if (mouseX > width / 2 - rW / 2 + (i) * l && mouseX < width / 2 - rW / 2 + (i + 1) * l) {
       wo = i;
+      console.log (wo);
       break;
     }
   }

@@ -14,7 +14,7 @@ mousePressed = function () {
     return;
   }
   
-  if (mouseX > width || mouseY > height) return;
+  if (mouseX > width || mouseY > height || mouseX < 0 || mouseY < 0) return;
   
   if (mx == mouseX - mouseX % l && my == mouseY - mouseY % l) {
     mx = my = pm = undefined; 
