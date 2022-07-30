@@ -32,7 +32,7 @@ class Board {
         else if (this.c[i])
           fill (210, 180, 133);
         else 
-          fill (66, 41, 23);
+          fill (81, 66, 23);
         rect (i % 8 * l, floor (i / 8) * l, l, l);
         
       }
