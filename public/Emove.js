@@ -1,5 +1,9 @@
 // dificulty [ 1, 2, 3, 4 ]  5 or more is so slow
 let mmdepth = 3;
+urlp = window.location.search;
+if (urlp) {
+  mmdepth = parseInt((new URLSearchParams (urlp)).get ('q'));
+}
 
 function emove () {
   drm = []
